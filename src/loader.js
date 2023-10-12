@@ -42,7 +42,7 @@ const loadApplication = async (appPath, logger) => {
   const apiPath = path.join(appPath, './api');
   const configPath = path.join(appPath, './config');
 
-  const config = await loadDir(configPath, sandbox);
+  const { config } = await loadDir(configPath, sandbox);
   sandbox.config = Object.freeze(config);
 
   const db = dbBuilder(config.db);

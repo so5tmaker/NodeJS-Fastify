@@ -9,7 +9,7 @@ const http = require('./src/http.js');
 const ws = require('./src/ws.js');
 const { loadApplication } = require('./src/loader.js');
 
-const APPLICATION_PATH = path.join(process.cwd(), '../NodeJS-Application');
+const APPLICATION_PATH = path.join(process.cwd(), '../NodeJS-Fastify');
 const LOG_FOLDER_PATH = './log';
 
 (async () => {
@@ -23,5 +23,5 @@ const LOG_FOLDER_PATH = './log';
   http.init(server, app.api);
   http.initStatic(server, APPLICATION_PATH);
   ws.init(server, app.api);
-  http.start(server, { port: app.config.server.ports[0] });
+  http.start(server, { port: app.config.api.port });
 })();
