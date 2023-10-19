@@ -21,7 +21,7 @@ const LOG_FOLDER_PATH = './log';
   const app = await loadApplication(APPLICATION_PATH, logger);
 
   http.init(server, app.api);
-  http.initStatic(server, APPLICATION_PATH);
+  http.initStatic(server, APPLICATION_PATH, { port: app.config.api.port });
   ws.init(server, app.api);
   http.start(server, { port: app.config.api.port });
 })();
